@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://bd35venr544nt"]
 
-[ext_resource type="Script" uid="uid://bjcq1pbooqltb" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://bjcq1pbooqltb" path="res://scenes/game_manager.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://jdcxv5jfl12a" path="res://ui/main_ui.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://db2sodxnvklns" path="res://prefabs/environment/asteroid_1.tscn" id="4_iywne"]
+[ext_resource type="Texture2D" uid="uid://dwdn21ow66e5y" path="res://prefabs/environment/earth.png" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://ds8k5e8ytieuf" path="res://prefabs/player/player.tscn" id="5_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=501050005]
 script = ExtResource("1_uwrxv")
+main_ui_prefab = ExtResource("2_lnu2h")
+asteroid_prefab = ExtResource("4_iywne")
+player_prefab = ExtResource("5_p57ef")
+asteroid_count = 20
+
+[node name="Earth" type="Sprite2D" parent="." unique_id=1622003190]
+position = Vector2(136, 101)
+texture = ExtResource("5_iywne")
+
+[node name="AsteroidBelt" type="Node2D" parent="." unique_id=1686559113]

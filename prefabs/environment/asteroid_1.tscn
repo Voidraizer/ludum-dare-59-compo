@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://db2sodxnvklns"]
+
+[ext_resource type="Texture2D" uid="uid://b0vws7f1qfco5" path="res://prefabs/environment/asteroid1.png" id="1_8wrpr"]
+[ext_resource type="Script" uid="uid://bl7s21h0cmqt4" path="res://prefabs/environment/asteroid.gd" id="2_1fmey"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1fmey"]
+friction = 0.0
+bounce = 1.0
+
+[node name="Asteroid1" type="RigidBody2D" unique_id=970370631]
+collision_layer = 2
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_1fmey")
+gravity_scale = 0.0
+can_sleep = false
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_1fmey")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1641610411]
+texture_filter = 1
+texture = ExtResource("1_8wrpr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=445013420]
+visible = false
+modulate = Color(1, 1, 1, 0.15294118)
+polygon = PackedVector2Array(3, -64, 6, -61, 8, -52, 11, -49, 32, -49, 38, -44, 44, -29, 50, -27, 59, -18, 59, -10, 55, -5, 53, -1, 55, 2, 57, 3, 60, 5, 63, 8, 64, 11, 64, 17, 61, 23, 61, 26, 59, 30, 47, 42, 47, 43, 45, 46, 40, 55, 35, 60, 30, 62, 29, 63, 24, 64, 6, 64, 2, 63, -2, 61, -8, 55, -9, 55, -13, 53, -16, 53, -22, 56, -25, 59, -27, 60, -30, 60, -35, 58, -37, 56, -40, 51, -40, 46, -37, 43, -37, 29, -43, 26, -46, 22, -51, 20, -55, 18, -59, 14, -59, 6, -63, -3, -64, -7, -64, -10, -63, -15, -56, -23, -51, -28, -50, -28, -48, -29, -46, -32, -42, -36, -38, -38, -36, -41, -36, -47, -33, -50, -27, -53, -25, -53, -21, -58, -18, -61, -14, -62)
