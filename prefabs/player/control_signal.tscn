@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://jc5e0116o4u4"]
+
+[ext_resource type="Script" uid="uid://dxbqfg02geptb" path="res://scenes/control_signal.gd" id="1_3ftdn"]
+[ext_resource type="Texture2D" uid="uid://bd7k2os8hdobe" path="res://textures/signal_texture.png" id="1_wojv5"]
+
+[sub_resource type="Gradient" id="Gradient_wojv5"]
+offsets = PackedFloat32Array(0, 0.8084416)
+colors = PackedColorArray(0, 1, 0, 1, 1, 0.20392157, 0, 1)
+
+[node name="ControlSignal" type="Line2D" unique_id=580348577]
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+default_color = Color(0.5411765, 1, 0.5647059, 1)
+gradient = SubResource("Gradient_wojv5")
+texture = ExtResource("1_wojv5")
+texture_mode = 1
+script = ExtResource("1_3ftdn")

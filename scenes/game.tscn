@@ -5,16 +5,42 @@
 [ext_resource type="PackedScene" uid="uid://db2sodxnvklns" path="res://prefabs/environment/asteroid_1.tscn" id="4_iywne"]
 [ext_resource type="Texture2D" uid="uid://dwdn21ow66e5y" path="res://prefabs/environment/earth.png" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://ds8k5e8ytieuf" path="res://prefabs/player/player.tscn" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://dbjup1ina0t2w" path="res://scenes/earth_follow_cam.gd" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://jc5e0116o4u4" path="res://prefabs/player/control_signal.tscn" id="7_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://dsv4ijko88k85" path="res://textures/goal.png" id="8_gee14"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5sy4"]
+radius = 40.0
 
 [node name="Game" type="Node2D" unique_id=501050005]
 script = ExtResource("1_uwrxv")
 main_ui_prefab = ExtResource("2_lnu2h")
 asteroid_prefab = ExtResource("4_iywne")
 player_prefab = ExtResource("5_p57ef")
-asteroid_count = 20
+control_signal_prefab = ExtResource("7_u5sy4")
+asteroid_count = 300
+goal_distance_from_edge = 300.0
 
-[node name="Earth" type="Sprite2D" parent="." unique_id=1622003190]
-position = Vector2(136, 101)
+[node name="Earth" type="Sprite2D" parent="." unique_id=89964047]
+z_index = -1
+position = Vector2(118, 93)
 texture = ExtResource("5_iywne")
+script = ExtResource("6_p57ef")
+earth_offset = Vector2(-400, -200)
+
+[node name="SignalOrigin" type="Node2D" parent="Earth" unique_id=1503268762]
+position = Vector2(-29, 1)
 
 [node name="AsteroidBelt" type="Node2D" parent="." unique_id=1686559113]
+
+[node name="Goal" type="Area2D" parent="." unique_id=778320085]
+position = Vector2(255, 53)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=942300903]
+shape = SubResource("CircleShape2D_u5sy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal" unique_id=819103135]
+texture_filter = 1
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_gee14")

@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://djxfk8w58j506"]
 
 [node name="InputLabel" type="Label" unique_id=149095334]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)

@@ -4,21 +4,65 @@
 [ext_resource type="Texture2D" uid="uid://6d374txen068" path="res://prefabs/player/ship.png" id="2_rdx4y"]
 [ext_resource type="Script" uid="uid://62alokwmq8sk" path="res://prefabs/player/health_manager.gd" id="2_wv1mm"]
 [ext_resource type="Script" uid="uid://curspgyca0afm" path="res://prefabs/player/input_handler.gd" id="3_binfn"]
+[ext_resource type="Script" uid="uid://ca3kx61hp43rj" path="res://prefabs/player/heart_cluster.gd" id="3_vhck3"]
+[ext_resource type="Texture2D" uid="uid://gqtesgxsbd3q" path="res://textures/goal_pointing_arrow.png" id="5_klv5p"]
+[ext_resource type="Script" uid="uid://cmkpj3gfont8r" path="res://prefabs/player/goal_pointing_arrow.gd" id="6_iylwk"]
+[ext_resource type="Texture2D" uid="uid://djtc7x3npft1l" path="res://textures/heart.png" id="7_ev8v4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1725504186]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_sxsrd")
+max_speed = 1.5
 
 [node name="Health" type="Node2D" parent="." unique_id=379242403]
 script = ExtResource("2_wv1mm")
 
+[node name="HeartCluster" type="Node2D" parent="Health" unique_id=1056990102]
+modulate = Color(0.76578313, 0, 0.20031509, 1)
+script = ExtResource("3_vhck3")
+
+[node name="Heart1" type="Sprite2D" parent="Health/HeartCluster" unique_id=65271556]
+texture_filter = 1
+texture = ExtResource("7_ev8v4")
+offset = Vector2(-40, 25)
+
+[node name="Heart2" type="Sprite2D" parent="Health/HeartCluster" unique_id=823167767]
+texture_filter = 1
+texture = ExtResource("7_ev8v4")
+offset = Vector2(-20, 25)
+
+[node name="Heart3" type="Sprite2D" parent="Health/HeartCluster" unique_id=1514134852]
+texture_filter = 1
+texture = ExtResource("7_ev8v4")
+offset = Vector2(0, 25)
+
+[node name="Heart4" type="Sprite2D" parent="Health/HeartCluster" unique_id=606546959]
+texture_filter = 1
+texture = ExtResource("7_ev8v4")
+offset = Vector2(20, 25)
+
+[node name="Heart5" type="Sprite2D" parent="Health/HeartCluster" unique_id=1348954135]
+texture_filter = 1
+texture = ExtResource("7_ev8v4")
+offset = Vector2(40, 25)
+
 [node name="InputHandler" type="Node2D" parent="." unique_id=1559429921]
 script = ExtResource("3_binfn")
+_velocity_acceleration = 0.5
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=369717632]
+[node name="ShipSprite" type="Sprite2D" parent="." unique_id=369717632]
 texture_filter = 1
 texture = ExtResource("2_rdx4y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=2069713808]
 visible = false
 polygon = PackedVector2Array(12, 7, 12, 8, 11, 9, 4, 9, 5, 12, 5, 13, 4, 14, -4, 14, -5, 13, -5, 12, -4, 9, -11, 9, -12, 8, -12, 7, -4, -1, -6, -3, -6, -8, -5, -10, -2, -13, -1, -15, 1, -15, 2, -13, 5, -10, 6, -8, 6, -3, 4, -1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=995032367]
+enabled = false
+
+[node name="ArrowSprite" type="Sprite2D" parent="." unique_id=1425061392]
+texture_filter = 1
+texture = ExtResource("5_klv5p")
+offset = Vector2(0, -40)
+script = ExtResource("6_iylwk")
