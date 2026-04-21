@@ -1,0 +1,4 @@
+[gd_resource type="SystemFont" format=3 uid="uid://bgb0gcrrmo7ne"]
+
+[resource]
+font_names = PackedStringArray("Trebuchet MS")

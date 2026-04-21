@@ -1,0 +1,14 @@
+[gd_resource type="Theme" format=3 uid="uid://kybwwno5uipf"]
+
+[ext_resource type="SystemFont" uid="uid://bgb0gcrrmo7ne" path="res://ui/my_main_font.tres" id="1_87ruo"]
+
+[resource]
+Label/colors/font_color = Color(0, 1, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_87ruo")
+_MissionHeaderLabel/base_type = &"Label"
+_MissionHeaderLabel/font_sizes/font_size = 24
+_MissionLogLabel/base_type = &"Label"
+_MissionLogLabel/font_sizes/font_size = 10

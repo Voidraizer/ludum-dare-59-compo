@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 Asteroid="All my asteroids in this group"
 
+[gui]
+
+theme/custom="uid://kybwwno5uipf"
+
 [input]
 
 ui_accept={

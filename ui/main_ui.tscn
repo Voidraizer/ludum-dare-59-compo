@@ -61,7 +61,7 @@ size_flags_vertical = 3
 [node name="InputPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/InfoPanel" unique_id=2088079588]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.8
+size_flags_stretch_ratio = 0.3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfoPanel/InputPanel" unique_id=1638354908]
 layout_mode = 2
@@ -76,7 +76,7 @@ theme_override_constants/separation = 15
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/InfoPanel/InputPanel/MarginContainer/VBoxContainer" unique_id=157726084]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_type_variation = &"_MissionHeaderLabel"
 text = "Mission Log"
 horizontal_alignment = 1
 
