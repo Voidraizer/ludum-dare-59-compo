@@ -10,15 +10,29 @@ extends CanvasLayer
 @onready var speedometer_text = %SpeedometerText
 
 
+signal pause_requested
+signal quit_requested
+
 # Called when the node enters the scene tree for the first time.
-# func _ready() -> void:
-#     pass
+func _ready() -> void:
+    # Connect signals
+    var menu_button = %MenuButton
+    menu_button.pause_game_pressed.connect(_on_pause_pressed)
+    menu_button.quit_game_pressed.connect(_on_quit_pressed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
     heading_line.pivot_offset = Vector2(heading_line.size.x / 2, heading_line.size.y / 2)
     velocity_line.pivot_offset = Vector2(velocity_line.size.x / 2, velocity_line.size.y / 2)
+
+
+func _on_pause_pressed() -> void:
+    pause_requested.emit()
+
+
+func _on_quit_pressed() -> void:
+    quit_requested.emit()
 
 
 func _on_input_key_pressed(key_name: String, keycode: Key) -> void:

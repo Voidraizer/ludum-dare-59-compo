@@ -7,7 +7,7 @@ var current_health: int = max_health
 var heart_sprites: Array[Sprite2D] = []
 
 signal health_changed(current_health: int)
-signal player_died()
+signal player_died
 
 func _ready() -> void:
     for i in range(max_health):
@@ -19,6 +19,7 @@ func lose_health(amount: int = 1) -> void:
     current_health = max(current_health - amount, 0)
     print("Health lost! Current health: ", current_health)
     heart_sprites[current_health].visible = false
-    emit_signal("health_changed", current_health)
+    health_changed.emit(current_health)
+
     if current_health == 0:
-        emit_signal("player_died")
+        player_died.emit()

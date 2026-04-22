@@ -12,3 +12,7 @@ _MissionHeaderLabel/base_type = &"Label"
 _MissionHeaderLabel/font_sizes/font_size = 24
 _MissionLogLabel/base_type = &"Label"
 _MissionLogLabel/font_sizes/font_size = 10
+_YouLoseLabel/base_type = &"Label"
+_YouLoseLabel/colors/font_color = Color(1, 0, 0, 1)
+_YouWinLabel/base_type = &"Label"
+_YouWinLabel/colors/font_color = Color(0, 1, 1, 1)

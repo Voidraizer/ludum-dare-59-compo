@@ -31,6 +31,8 @@ func _ready() -> void:
     input_handler = player.get_node("InputHandler")
 
     # Connect signals
+    main_ui.pause_requested.connect(_on_pause_requested)
+    main_ui.quit_requested.connect(_on_quit_requested)
     input_handler.input_key_pressed.connect(main_ui._on_input_key_pressed)
     input_handler.input_key_pressed.connect(_on_input_key_pressed)
     player.update_flight_metrics.connect(main_ui._on_update_flight_metrics)
@@ -41,6 +43,14 @@ func _ready() -> void:
 
     if not Globals.debug:
         _load_level()
+
+
+func _on_pause_requested() -> void:
+    get_tree().paused = not get_tree().paused
+
+
+func _on_quit_requested() -> void:
+    get_tree().quit()
 
 
 func _load_level() -> void:
@@ -133,11 +143,13 @@ func _debug_spawn_asteroid() -> void:
 func _on_player_won(body: Node) -> void:
     if body.name == "Player":
         var game_over_label = main_ui.get_node("MarginContainer/VBoxContainer/CenterContainer/EndGameLabel") as Label
+        game_over_label.theme_type_variation = "_YouWinLabel"
         game_over_label.text = "YOU WIN"
         game_over_label.visible = true
 
 
 func _on_player_lost() -> void:
     var game_over_label = main_ui.get_node("MarginContainer/VBoxContainer/CenterContainer/EndGameLabel") as Label
+    game_over_label.theme_type_variation = "_YouLoseLabel"
     game_over_label.text = "GAME OVER"
     game_over_label.visible = true

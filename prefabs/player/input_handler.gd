@@ -9,7 +9,7 @@ var velocity = Vector2.ZERO
 var rotation_speed: float = 0.0
 
 
-signal input_processed_raw(key_name: String, keycode: Key)
+# signal input_processed_raw(key_name: String, keycode: Key)
 signal input_key_pressed(key_name: String, keycode: Key)
 signal input_key_released(key_name: String, keycode: Key)
 signal new_velocity(velocity: Vector2)
@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
                 "processed": false
             })
 
-            emit_signal("input_key_pressed", Globals.get_key_name(event.keycode, false), event.keycode)
+            input_key_pressed.emit(Globals.get_key_name(event.keycode, false), event.keycode)
 
         elif not event.pressed and not event.echo:
             if key_press_queue.has(event.keycode) and key_press_queue[event.keycode].size() > 0:
@@ -36,11 +36,11 @@ func _input(event: InputEvent) -> void:
                 if last_press["duration"] == 0: # If the key was released before the input delay, process it immediately
                     last_press["duration"] = Time.get_ticks_msec() - last_press["start_time"]
 
-                emit_signal("input_key_released", Globals.get_key_name(event.keycode, false), event.keycode)
+                input_key_released.emit(Globals.get_key_name(event.keycode, false), event.keycode)
 
             # Emit the raw signal for anything that cares
-            var letter = Globals.get_key_name(event.keycode, event.shift_pressed)
-            emit_signal("input_processed_raw", letter, event.keycode)
+            # var letter = Globals.get_key_name(event.keycode, event.shift_pressed)
+            # input_processed_raw.emit(letter, event.keycode)
 
 
 func _process(_delta: float) -> void:
@@ -106,5 +106,5 @@ func _process(_delta: float) -> void:
     # Debugging: Log velocity and rotation speed
     # if Globals.debug:
     #     print("Changes in Velocity: ", velocity, " Rotation Speed: ", rotation_speed)
-    emit_signal("new_velocity", velocity)
-    emit_signal("new_rotation_speed", rotation_speed)
+    new_velocity.emit(velocity)
+    new_rotation_speed.emit(rotation_speed)

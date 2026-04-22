@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
         processed_rotation_update = 0.0
         _on_asteroid_collision(collision)
 
-    emit_signal("update_flight_metrics", global_position, velocity, max_speed, rotation, processed_rotation_update)
+    update_flight_metrics.emit(global_position, velocity, max_speed, rotation, processed_rotation_update)
 
 
 func _on_new_velocity(new_velocity: Vector2) -> void:

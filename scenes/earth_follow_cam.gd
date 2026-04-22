@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
     if player:
         # Follow the player camera's position
         global_position = player.global_position + earth_offset
-        emit_signal("earth_signal_origin_moved", $SignalOrigin.global_position)
+        earth_signal_origin_moved.emit($SignalOrigin.global_position)
 
 
 func set_player(player_node: CharacterBody2D) -> void:
